@@ -1,14 +1,24 @@
 import React from "react"
-import {Form,} from "semantic-ui-react"
+import {Form, Grid} from "semantic-ui-react"
 
 class FlashForm extends React.Component {
 
   state = { question:"", answer:""}
 
+  componentDidMount() {
+    if (this.props.id)
+      this.setState({ question: this.props.question, answer: this.props.answer, revealed: this.props.revealed})
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.add(this.state)
-    this.setState({question:"", answer:""})
+    if(this.props.id){
+      this.props.edit({id: this.props.id, ...this.state})
+      this.props.toggleEdit()}
+    else {
+      this.props.add(this.state)
+    }
+      this.setState({question:"", answer:""})
   }
 
   handleChange = (e) => {
@@ -18,7 +28,6 @@ class FlashForm extends React.Component {
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
-        <Form.Group widths="equal">
         <Form.Input
           fluid
           label="Question"
@@ -35,8 +44,7 @@ class FlashForm extends React.Component {
           value={this.state.answer}
           onChange={this.handleChange}
           />
-          <Form.Button>Submit</Form.Button>
-        </Form.Group>
+          <Form.Button color="green">Submit</Form.Button>
       </Form>
     )
   }

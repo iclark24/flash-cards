@@ -19,10 +19,23 @@ class FlashForm extends React.Component {
       this.props.add(this.state)
     }
       this.setState({question:"", answer:""})
-  }
+  } 
 
   handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value,})
+  }
+
+  rendersubmit() {
+    if(this.props.id){
+      return(
+        <Form.Button color="green">Edit</Form.Button>
+      )
+    }
+    else {
+      return(
+        <Form.Button color="green">Create</Form.Button>
+      )
+    }
   }
 
   render() {
@@ -44,7 +57,7 @@ class FlashForm extends React.Component {
           value={this.state.answer}
           onChange={this.handleChange}
           />
-          <Form.Button color="green">Submit</Form.Button>
+        {this.rendersubmit()}
       </Form>
     )
   }

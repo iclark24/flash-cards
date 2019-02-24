@@ -20,11 +20,11 @@ class Flash extends React.Component {
       :
       <>
         {this.props.revealed ? 
-          <Card.Content style ={{ display:"flex", alignItems:"center", justifyContent:"space-between", overflow:"auto"}} textAlign="center" onClick={() => this.props.revealcard(this.props.id)}>
+          <Card.Content style ={{ display:"flex", alignItems:"center", justifyContent:"center", overflow:"auto"}} textAlign="center" onClick={() => this.props.revealcard(this.props.id)}>
             {this.props.answer}
           </Card.Content>
             :
-          <Card.Content style ={{ display:"flex", alignItems:"center", justifyContent:"space-between", overflow:"auto"}} textAlign="center" onClick={() => this.props.revealcard(this.props.id)}>
+          <Card.Content style ={{ display:"flex", alignItems:"center", justifyContent:"center ", overflow:"auto"}} textAlign="center" onClick={() => this.props.revealcard(this.props.id)}>
             {this.props.question}
           </Card.Content>} 
         </>

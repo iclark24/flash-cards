@@ -9,12 +9,12 @@ import Flashes from "./components/Flashes"
 
 const App = () => (
   <Fragment>
-    <Navbar />
+    {/* <Navbar /> */}
     <Container style={{ paddingTop:"25px"}} textAlign="center">
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/flashcards" component={Flashes} />
+        <Route exact path="/" component={Flashes} />
+        {/* <Route exact path="/about" component={About} /> */}
+        {/* <Route exact path="/flashcards" component={Flashes} /> */}
         <Route component={NoMatch} />
       </Switch>
     </Container>

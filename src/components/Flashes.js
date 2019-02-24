@@ -7,8 +7,12 @@ import FlashForm from "./FlashForm"
 
 class Flashes extends Component {
   state = {
-    fcards: [],
+    fcards: [
+      {id: 1, question: "Example Question (Click me to reveal answer)", answer: "Example Answer", revealed: false}
+    ],
     showForm: true,
+      // ({id, question, answer, revealed, revealcard, remove, edit})
+
   }
 
   toggleForm = () =>this.setState({ showForm: !this.state.showForm })
